@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script>  
+    document.addEventListener('DOMContentLoaded', () => {
+      const request = new XMLHttpRequest();
+      request.open('POST', 'http://127.0.0.1:5000/logout');
+      request.send("reset all");
+      
+      document.querySelector("#form").onsubmit = () => {
+        const account = document.querySelector("#registrousuario").value;
+        const psw = document.querySelector("#registrocontraseña1").value;
+
+        request.open('POST', 'http://127.0.0.1:5000/new_user');
+
+        request.onload = () => {
+          const data = JSON.parse(request.responseText);
+          if(data.success){
+            location.href = "login.html";
+          }
+          else{
+            alert("El nombre de usuario ya existe.");
+            location.reload();
+          }
+        }
+
+        const data = new FormData();
+        data.append('account', account);
+        data.append('password', psw);
+
+        request.send(data);
+        return false;
+      };
+
+
+  document.querySelector("#botoncrearcuenta").disabled = true;
+
+  function comprobar(){
+    if (document.querySelector("#registrousuario").value.length > 0 && document.querySelector("#registrocontraseña1").value.length > 0 && document.querySelector("#registrocontraseña2").value.length > 0 ){
+      if(document.querySelector("#registrocontraseña1").value == document.querySelector("#registrocontraseña2").value ){
+        document.querySelector("#botoncrearcuenta").style.background="#ffc107";
+        document.querySelector("#botoncrearcuenta").style.color="black";
+
+        document.querySelector("#botoncrearcuenta").disabled = false;
+      } 
+    }
+    else
+      document.querySelector("#botoncrearcuenta").disabled = true;
+
+  }
+  
+  document.querySelector("#registrousuario" ).onkeyup = () => {
+    document.querySelector("#botoncrearcuenta").style.background="#b80f22";
+    document.querySelector("#botoncrearcuenta").style.color="#fff";
+    comprobar()
+  };
+  document.querySelector("#registrocontraseña1" ).onkeyup = () => {
+    document.querySelector("#botoncrearcuenta").style.background="#b80f22";
+    document.querySelector("#botoncrearcuenta").style.color="#fff";
+    comprobar()
+  };
+  document.querySelector("#registrocontraseña2" ).onkeyup = () => {
+    document.querySelector("#botoncrearcuenta").style.background="#b80f22";
+    document.querySelector("#botoncrearcuenta").style.color="#fff";
+    comprobar()
+  };
+  
+  });
+  </script>
+
+
+  <link rel="stylesheet" type="text/css" href="../static/Register_style.css">
+  <title>Amaxon-Register</title>
+</head>
+
+<body>
+
+  <div class="Registro">
+    
+    <img src="../static/imagenes/logo.jpg" class="imagen" >
+
+    <header>
+      <h1>Registrate!</h1> 
+    </header>
+
+    <label>Nombre de Usuario:</label>
+
+    <form id="form">
+      <input id="registrousuario" type="text" placeholder="Ingresa tu Usuario " name="user">
+
+      <label>Nueva Contraseña:</label>
+      <input id="registrocontraseña1" type="contraseña" placeholder="Ingresa tu Contraseña " name="password">
+
+      <label>Confirma tu Contraseña:</label>
+      <input id= "registrocontraseña2" type="contraseña" placeholder="Confirma tu Contraseña " name="password_2"> 
+
+      <input id="botoncrearcuenta" type="submit" value="Crear cuenta">
+    </form>
+
+    <a targe="_blank" href="login.html">Iniciar Sesión</a>
+
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="../static/my_bar_style.css">
+      <script src="https://kit.fontawesome.com/16a7bdab0a.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" type="text/css" href="../static/info_style.css">
+	<title>Info</title>
+      <script type="text/javascript">
+        function logout(){
+        		/*
+            const request = new XMLHttpRequest();
+            request.open('POST', 'http://127.0.0.1:5000/logout');
+            request.send("logout post");
+        
+            request.onload = () => {
+                location.href = "login.html";
+            }
+            */
+            location.href = "login.html";
+        }
+      </script>
+ </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <a href="pantalla_principal.html"><img src="../static/imagenes/logo.jpg" class="logo"></a>
+
+        <input type="text" id="busqueda" value="">
+        <button class="lupa" onclick="document.getElementById('busqueda').value = ''">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <a href="forum.html" class="options-1"><b>Forum</b></a>
+        <a href="info.html" class="options-2"><b>Info</b></a>
+
+        
+        <a href="cart.html"><img src="../static/imagenes/carrito.jpg" class="carrito"></a>
+        
+
+        <b class="options-3" onclick="logout()">Sign Out</b>
+
+      </nav>  
+    </header>
+	<div class="container" align="center">
+		<br><br>
+		<H1>Información de la Página</H1><br>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+		<br><br>
+
+		<br><H1>Misión</H1><br>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+		<br><br>
+
+		<br><H1>Visión</H1><br>
+		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+		<br><br>
+
+		<br><H2>Amaxon Copyright Rights ©</H2>
+		<br><br>
+	</div>
+</body>
+</html>
