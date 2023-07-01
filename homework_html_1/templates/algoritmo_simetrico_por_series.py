@@ -1,6 +1,3 @@
-# Alexander Carpio Mamani - CCOMP3-1
-
-
 def gen_par(n):
     return [i for i in range(n) if i % 2 == 0 and i != 2]
 
